@@ -38,4 +38,7 @@ jwt:
 frontend:
   url: http://localhost:3000
 
+file:
+  upload-dir: ./uploads/profiles
+
 
