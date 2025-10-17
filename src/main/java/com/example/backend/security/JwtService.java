@@ -44,6 +44,16 @@ public class JwtService {
         return buildToken(extraClaims, userDetails, jwtExpiration);
     }
 
+    public String generateRefreshToken(UserDetails userDetails) {
+        Map<String, Object> extraClaims = new HashMap<>();
+        if (userDetails instanceof User user) {
+            extraClaims.put("id", user.getId());
+            extraClaims.put("email", user.getEmail());
+            extraClaims.put("username", user.getUsername());
+        }
+        return buildToken(extraClaims, userDetails, refreshExpiration);
+    }
+
     /**
      * 토큰 실제 생성 로직
      */

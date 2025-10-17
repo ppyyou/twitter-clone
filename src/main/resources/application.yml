@@ -15,6 +15,17 @@ spring:
     console:
       enabled: true
       path: /h2-console
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
+            scope:
+              - user:email
+              - read:user
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
 
 server:
   port: 8080
@@ -23,5 +34,8 @@ jwt:
   secret: dGVzdC10ZXN0LXRlc3QtdGVzdC10ZXN0LXRlc3QtdGVzdC10ZXN0LXRlc3Q=
   expiration: 86400000
   refresh-expiration: 604800000
+
+frontend:
+  url: http://localhost:3000
 
 

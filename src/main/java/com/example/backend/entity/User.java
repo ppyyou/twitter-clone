@@ -29,6 +29,9 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
+    private String fullName;
+    private String provider; // github 등
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.emptyList();
